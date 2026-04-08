@@ -16,13 +16,32 @@ const Activities = () => {
   }, [endpoint]);
 
   return (
-    <div>
-      <h2>Activities</h2>
-      <ul>
-        {activities.map((activity, idx) => (
-          <li key={activity.id || idx}>{JSON.stringify(activity)}</li>
-        ))}
-      </ul>
+    <div className="card mb-4">
+      <div className="card-body">
+        <h2 className="card-title mb-4">Activities</h2>
+        <div className="table-responsive">
+          <table className="table table-striped table-bordered">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>User</th>
+                <th>Workout</th>
+                <th>Duration</th>
+              </tr>
+            </thead>
+            <tbody>
+              {activities.map((activity, idx) => (
+                <tr key={activity.id || idx}>
+                  <td>{activity.id || idx}</td>
+                  <td>{activity.user}</td>
+                  <td>{activity.workout}</td>
+                  <td>{activity.duration}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
   );
 };
